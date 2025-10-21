@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  name          String?
+  image         String?
+  profile       Profile?
+  posts         Post[]
+  comments      Comment[]
+  likes         Like[]
+  reports       Report[]
+  followers     Follow[]       @relation("following")
+  following     Follow[]       @relation("followers")
+  notifications Notification[] @relation("userNotifications")
+  createdBy     Notification[] @relation("notificationCreator")
+  createdAt     DateTime       @default(now())
+  role          UserRole       @default(USER)
+}
+
+enum UserRole {
+  USER
+  MODERATOR
+  ADMIN
+}
+
+model Profile {
+  id        String  @id @default(cuid())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String  @unique
+  headline  String?
+  bio       String?
+  location  String?
+  website   String?
+}
+
+model Post {
+  id          String        @id @default(cuid())
+  author      User          @relation(fields: [authorId], references: [id])
+  authorId    String
+  title       String
+  content     String
+  tags        String[]      @default([])
+  attachments String[]      @default([])
+  comments    Comment[]
+  likes       Like[]
+  reports     Report[]
+  analytics   PostAnalytics?
+  createdAt   DateTime      @default(now())
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  @@unique([postId, userId])
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  follower    User     @relation("followers", fields: [followerId], references: [id])
+  followerId  String
+  following   User     @relation("following", fields: [followingId], references: [id])
+  followingId String
+  createdAt   DateTime @default(now())
+  @@unique([followerId, followingId])
+}
+
+model Report {
+  id         String       @id @default(cuid())
+  reporter   User        @relation(fields: [reporterId], references: [id])
+  reporterId String
+  post       Post?       @relation(fields: [postId], references: [id])
+  postId     String?
+  reason     String
+  status     ReportStatus @default(PENDING)
+  createdAt  DateTime    @default(now())
+  resolvedAt DateTime?
+}
+
+enum ReportStatus {
+  PENDING
+  RESOLVED
+  REJECTED
+}
+
+model Notification {
+  id          String           @id @default(cuid())
+  user        User             @relation("userNotifications", fields: [userId], references: [id])
+  userId      String
+  creator     User             @relation("notificationCreator", fields: [creatorId], references: [id])
+  creatorId   String
+  type        NotificationType
+  read        Boolean          @default(false)
+  postId      String?
+  commentId   String?
+  createdAt   DateTime         @default(now())
+  readAt      DateTime?
+}
+
+enum NotificationType {
+  LIKE
+  COMMENT
+  FOLLOW
+  MENTION
+  POST_REPORT
+  POST_REMOVED
+}
+
+model PostAnalytics {
+  id        String   @id @default(cuid())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String   @unique
+  views     Int      @default(0)
+  shares    Int      @default(0)
+  saves     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

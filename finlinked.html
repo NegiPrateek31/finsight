@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinLinked - Connect with Finance Professionals</title>
+    <meta name="description" content="FinLinked - The professional network dedicated to finance professionals, analysts, and financial experts.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'linkedin-blue': '#0a66c2',
+                        'linkedin-dark': '#004182',
+                        'linkedin-light': '#378fe9',
+                        'linkedin-bg': '#f3f2ef',
+                        'linkedin-card': '#ffffff',
+                        'linkedin-text': '#000000e6',
+                        'linkedin-gray': '#666666'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-linkedin-bg">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-14">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-linkedin-blue rounded flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">Fi</span>
+                    </div>
+                    <span class="text-xl font-bold text-linkedin-blue">FinSight</span>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-2xl mx-8">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            placeholder="Search for finance professionals, reports, analysis..."
+                            class="w-full py-2 px-4 bg-linkedin-bg rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                        >
+                        <i class="fas fa-search absolute right-3 top-2.5 text-linkedin-gray"></i>
+                    </div>
+                </div>
+
+                <!-- Navigation Items -->
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="flex flex-col items-center text-linkedin-gray hover:text-linkedin-blue">
+                        <i class="fas fa-home text-xl"></i>
+                        <span class="text-xs mt-1">Home</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-linkedin-gray hover:text-linkedin-blue">
+                        <i class="fas fa-user-friends text-xl"></i>
+                        <span class="text-xs mt-1">My Network</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-linkedin-gray hover:text-linkedin-blue">
+                        <i class="fas fa-briefcase text-xl"></i>
+                        <span class="text-xs mt-1">Jobs</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-linkedin-gray hover:text-linkedin-blue">
+                        <i class="fas fa-comment-dots text-xl"></i>
+                        <span class="text-xs mt-1">Messaging</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-linkedin-gray hover:text-linkedin-blue">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="text-xs mt-1">Notifications</span>
+                    </a>
+                    
+                    <!-- User Profile -->
+                    <div class="flex items-center space-x-2 cursor-pointer">
+                        <img 
+                            src="https://picsum.photos/32?random=1" 
+                            alt="Profile" 
+                            class="w-8 h-8 rounded-full"
+                        >
+                        <span class="text-sm text-linkedin-gray">Me <i class="fas fa-caret-down"></i></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Left Sidebar -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Profile Card -->
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <div class="text-center -mt-12 mb-4">
+                        <img 
+                            src="https://picsum.photos/64?random=2" 
+                            alt="User profile" 
+                            class="w-16 h-16 rounded-full mx-auto border-4 border-white"
+                        >
+                    </div>
+                    <h3 class="font-semibold text-center text-linkedin-text">Sarah Johnson</h3>
+                    <p class="text-sm text-linkedin-gray text-center mb-4">Senior Financial Analyst</p>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-linkedin-gray">Profile viewers</span>
+                            <span class="font-semibold">128</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-linkedin-gray">Post impressions</span>
+                            <span class="font-semibold">1,247</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Analysis -->
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <h4 class="font-semibold mb-3">Recent Analysis</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-chart-line text-linkedin-blue"></i>
+                            <span class="text-sm">Q4 Market Trends Report</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-file-invoice-dollar text-linkedin-blue"></i>
+                            <span class="text-sm">Portfolio Performance Analysis</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-balance-scale text-linkedin-blue"></i>
+                            <span class="text-sm">Risk Assessment Framework</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Feed -->
+            <div class="lg:col-span-2 space-y-4">
+                <!-- Create Post -->
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <div class="flex space-x-4 mb-4">
+                        <img 
+                            src="https://picsum.photos/48?random=3" 
+                            alt="User avatar" 
+                            class="w-12 h-12 rounded-full"
+                        >
+                        <button class="flex-1 text-left px-4 py-2 bg-linkedin-bg rounded-full text-linkedin-gray hover:bg-gray-200">
+                            Share financial analysis, market insights...
+                        </button>
+                    </div>
+                    <div class="flex justify-between text-linkedin-gray">
+                        <button class="flex items-center space-x-2 px-4 py-2 hover:bg-linkedin-bg rounded">
+                            <i class="fas fa-chart-bar text-linkedin-blue"></i>
+                            <span>Analysis</span>
+                        </button>
+                        <button class="flex items-center space-x-2 px-4 py-2 hover:bg-linkedin-bg rounded">
+                            <i class="fas fa-file-alt text-green-500"></i>
+                            <span>Report</span>
+                        </button>
+                        <button class="flex items-center space-x-2 px-4 py-2 hover:bg-linkedin-bg rounded">
+                            <i class="fas fa-poll text-purple-500"></i>
+                            <span>Survey</span>
+                        </button>
+                        <button class="flex items-center space-x-2 px-4 py-2 hover:bg-linkedin-bg rounded">
+                            <i class="fas fa-calendar-alt text-orange-500"></i>
+                            <span>Event</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feed Posts -->
+                <div class="space-y-4" id="feed-posts">
+                    <!-- Post 1 -->
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="p-4">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <img 
+                                    src="https://picsum.photos/48?random=4" 
+                                    alt="User avatar" 
+                                    class="w-10 h-10 rounded-full"
+                                >
+                                <div>
+                                    <h4 class="font-semibold">Michael Chen</h4>
+                                    <p class="text-sm text-linkedin-gray">Portfolio Manager • 2h ago</p>
+                                </div>
+                            </div>
+                            <p class="mb-4">Just published my latest market analysis on emerging market opportunities in Southeast Asia. Key findings suggest strong growth potential in tech and renewable energy sectors.</p>
+                            <div class="bg-linkedin-bg p-4 rounded-lg mb-4">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <i class="fas fa-chart-line text-linkedin-blue"></i>
+                                    <span class="font-semibold">Market Analysis: Southeast Asia Q3 2024</span>
+                                </div>
+                                <p class="text-sm text-linkedin-gray">Comprehensive analysis of investment opportunities, risk factors, and growth projections across key markets.</p>
+                            </div>
+                            <div class="flex justify-between text-linkedin-gray text-sm">
+                                <button class="flex items-center space-x-1 hover:text-linkedin-blue">
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>124</span>
+                                </button>
+                                <button class="flex items-center space-x-1 hover:text-linkedin-blue">
+                                    <i class="far fa-comment"></i>
+                                    <span>47</span>
+                                </button>
+                                <button class="flex items-center space-x-1 hover:text-linkedin-blue">
+                                    <i class="far fa-share-square"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="p-4">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <img 
+                                    src="https://picsum.photos/48?random=5" 
+                                    alt="User avatar" 
+                                    class="w-10 h-10 rounded-full"
+                                >
+                                <div>
+                                    <h4 class="font-semibold">Jennifer Martinez</h4>
+                                    <p class="text-sm text-linkedin-gray">Risk Analyst • 4h ago</p>
+                                </div>
+                            </div>
+                            <p class="mb-4">New risk assessment framework for cryptocurrency portfolios. Developed a comprehensive model that accounts for volatility, regulatory changes, and market sentiment.</p>
+                            <img 
+                                src="https://picsum.photos/600/300?random=6" 
+                                alt="Risk assessment chart" 
+                                class="w-full rounded-lg mb-4"
+                            >
+                            <div class="flex justify-between text-linkedin-gray text-sm">
+                                <button class="flex items-center space-x-1 hover:text-linkedin-blue">
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>89</span>
+                                </button>
+                                <button class="flex items-center space-x-1 hover:text-linkedin-blue">
+                                    <i class="far fa-comment"></i>
+                                    <span>23</span>
+                                </button>
+                                <button class="flex items-center space-x-1 hover:text-linkedin-blue">
+                                    <i class="far fa-share-square"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- News & Updates -->
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <h4 class="font-semibold mb-4">Financial News</h4>
+                    <div class="space-y-3">
+                        <div class="border-b pb-3">
+                            <h5 class="font-semibold text-sm mb-1">Fed Rate Decision</h5>
+                            <p class="text-xs text-linkedin-gray">Federal Reserve maintains current interest rates amid inflation concerns</p>
+                        </div>
+                        <div class="border-b pb-3">
+                            <h5 class="font-semibold text-sm mb-1">Market Update</h5>
+                            <p class="text-xs text-linkedin-gray">Global markets show mixed performance as tech stocks rally</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-sm mb-1">Regulatory Changes</h5>
+                            <p class="text-xs text-linkedin-gray">New compliance requirements for financial institutions take effect next quarter</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggested Connections -->
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <h4 class="font-semibold mb-4">People you may know</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <img 
+                                    src="https://picsum.photos/40?random=7" 
+                                    alt="User avatar" 
+                                    class="w-10 h-10 rounded-full"
+                                >
+                                <div>
+                                    <h5 class="font-semibold text-sm">David Wilson</h5>
+                                    <p class="text-xs text-linkedin-gray">Investment Banker</p>
+                                </div>
+                            </div>
+                            <button class="text-linkedin-blue font-semibold text-sm">Connect</button>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <img 
+                                    src="https://picsum.photos/40?random=8" 
+                                    alt="User avatar" 
+                                    class="w-10 h-10 rounded-full"
+                                >
+                                <div>
+                                    <h5 class="font-semibold text-sm">Lisa Thompson</h5>
+                                    <p class="text-xs text-linkedin-gray">Quantitative Analyst</p>
+                                </div>
+                            </div>
+                            <button class="text-linkedin-blue font-semibold text-sm">Connect</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Analysis -->
+                <div class="bg-white rounded-lg shadow-sm p-4">
+                    <h4 class="font-semibold mb-4">Trending Analysis</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <span class="font-semibold text-linkedin-blue">1</span>
+                            <span>AI in Financial Forecasting</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-semibold text-linkedin-blue">2</span>
+                            <span>Sustainable Investing Trends</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-semibold text-linkedin-blue">3</span>
+                            <span>Blockchain in Banking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="font-semibold mb-4">Navigation</h5>
+                    <ul class="space-y-2 text-sm text-linkedin-gray">
+                        <li><a href="#" class="hover:text-linkedin-blue">Home</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">My Network</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Jobs</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Messaging</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Business Solutions</h5>
+                    <ul class="space-y-2 text-sm text-linkedin-gray">
+                        <li><a href="#" class="hover:text-linkedin-blue">Talent Solutions</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Marketing Solutions</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Sales Solutions</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Learning</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Directories</h5>
+                    <ul class="space-y-2 text-sm text-linkedin-gray">
+                        <li><a href="#" class="hover:text-linkedin-blue">Members</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Jobs</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Companies</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Featured</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">FinLinked</h5>
+                    <ul class="space-y-2 text-sm text-linkedin-gray">
+                        <li><a href="#" class="hover:text-linkedin-blue">About</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Accessibility</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Privacy & Terms</a></li>
+                        <li><a href="#" class="hover:text-linkedin-blue">Ad Choices</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t text-center text-sm text-linkedin-gray">
+                <p>FinLinked Corporation © 2024. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Define data for the feed
+        const feedPosts = [
+            {
+                "id": 1,
+                "user": {
+                    "name": "Michael Chen",
+                    "title": "Portfolio Manager",
+                    "avatar": "https://picsum.photos/48?random=4",
+                    "time": "2h ago"
+                },
+                "content": "Just published my latest market analysis on emerging market opportunities in Southeast Asia. Key findings suggest strong growth potential in tech and renewable energy sectors.",
+                "attachment": {
+                    "type": "analysis",
+                    "title": "Market Analysis: Southeast Asia Q3 2024",
+                    "description": "Comprehensive analysis of investment opportunities, risk factors, and growth projections across key markets."
+                },
+                "stats": {
+                    "likes": 124,
+                    "comments": 47
+                }
+            },
+            {
+                "id": 2,
+                "user": {
+                    "name": "Jennifer Martinez",
+                    "title": "Risk Analyst",
+                    "avatar": "https://picsum.photos/48?random=5",
+                    "time": "4h ago"
+                },
+                "content": "New risk assessment framework for cryptocurrency portfolios. Developed a comprehensive model that accounts for volatility, regulatory changes, and market sentiment.",
+                "image": "https://picsum.photos/600/300?random=6",
+                "stats": {
+                    "likes": 89,
+                    "comments": 23
+                }
+            }
+        ];
+
+        // Navigation handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent default anchor behavior and handle navigation
+            const links = document.querySelectorAll('a[href="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // In a real application, this would handle routing
+                    console.log('Navigation clicked:', this.textContent);
+                });
+            });
+
+            // Like button functionality
+            const likeButtons = document.querySelectorAll('.fa-thumbs-up');
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const isLiked = this.classList.contains('fas');
+                    if (isLiked) {
+                        this.classList.remove('fas');
+                        this.classList.add('far');
+                    } else {
+                        this.classList.remove('far');
+                        this.classList.add('fas');
+                        this.style.color = '#0a66c2';
+                    }
+                });
+            });
+
+            // Connect button functionality
+            const connectButtons = document.querySelectorAll('button:contains("Connect")');
+            connectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.textContent = 'Pending';
+                    this.style.color = '#666666';
+                    this.disabled = true;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
