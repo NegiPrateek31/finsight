@@ -18,6 +18,16 @@ export default function Feed({ posts }: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const posts = await prisma.post.findMany({ take: 20, orderBy: { createdAt: 'desc' } })
-  return { props: { posts } }
+  try {
+    const posts = await prisma.post.findMany({ 
+      take: 20, 
+      orderBy: { createdAt: 'desc' } 
+    })
+    return { props: { posts } }
+  } catch (error) {
+    // FIX: Catch database connection errors during the build phase.
+    // This prevents the "Failed to collect page data" error on Vercel.
+    console.error('Database query failed during build. Returning empty list.', error)
+    return { props: { posts: [] } }
+  }
 }
