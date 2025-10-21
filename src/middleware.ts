@@ -2,25 +2,9 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
-import { getToken } from 'next-auth/jwt'
+// 'getToken' was unused and caused a lint error; removed
 
-// Protected paths configuration (no longer used in middleware, but kept for reference)
-const PROTECTED_PATHS = {
-  api: [
-    '/api/posts',
-    '/api/notifications',
-    '/api/analytics',
-    '/api/admin',
-    '/api/upload'
-  ],
-  admin: ['/admin'],
-  moderator: ['/reports', '/moderation']
-}
-
-// Function to check if path starts with any of the given prefixes
-const pathStartsWith = (path: string, prefixes: string[]): boolean => {
-  return prefixes.some(prefix => path.startsWith(prefix))
-}
+// Removed unused PROTECTED_PATHS and pathStartsWith helpers to satisfy lint rules
 
 const middlewareHandler = async (req: NextRequest) => {
   // Debug: log cookies and nextauth token for troubleshooting

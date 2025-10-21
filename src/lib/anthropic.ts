@@ -6,7 +6,7 @@ export async function callAnthropic(prompt: string, maxTokens = 250) {
   const model = process.env.ANTHROPIC_MODEL || 'claude-sonnet-3.5'
   if (!apiKey) throw new Error('ANTHROPIC_API_KEY not set in env')
 
-  const response = await (globalThis as any).fetch(ANTHROPIC_API_URL, {
+  const response = await fetch(ANTHROPIC_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

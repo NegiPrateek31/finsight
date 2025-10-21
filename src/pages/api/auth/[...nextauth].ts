@@ -1,4 +1,5 @@
 // negiprateek31/finsight/finsight-1382f5b01244365c9a92f06365cf1e52dc019117/src/pages/api/auth/[...nextauth].ts
+/* eslint-disable no-unexpected-multiline */
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import prisma from '../../../lib/prisma'
 import NextAuth from 'next-auth'
@@ -55,9 +56,9 @@ export default NextAuth({
     },
     // Pass ID and role from JWT to the session object for client-side use
     async session({ session, token }) {
-      if (session.user && token.id && token.role) {
-        (session.user as any).id = token.id
-        (session.user as any).role = token.role
+      if (session.user && (token as any).id && (token as any).role) {
+        (session.user as any).id = (token as any).id
+        (session.user as any).role = (token as any).role
       }
       return session
     },
