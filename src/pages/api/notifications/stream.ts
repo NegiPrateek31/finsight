@@ -1,3 +1,4 @@
+// negiprateek31/finsight/finsight-1382f5b01244365c9a92f06365cf1e52dc019117/src/pages/api/notifications/stream.ts
 import { NextApiRequest, NextApiResponse } from 'next'
 import { withAuth } from '@/lib/auth'
 import { addNotificationClient, removeNotificationClient } from '@/lib/notifications'
@@ -17,7 +18,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Send initial message
   res.write('data: {"type":"connected"}\n\n')
 
-  const userId = (req as any).user.id
+  // This user.id is now securely populated by withAuth from the DB
+  const userId = (req as any).user.id 
   const client = {
     userId,
     send: (data: string) => {

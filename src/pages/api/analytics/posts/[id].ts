@@ -1,3 +1,4 @@
+// negiprateek31/finsight/finsight-1382f5b01244365c9a92f06365cf1e52dc019117/src/pages/api/analytics/posts/[id].ts
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
 import prisma from '@/lib/prisma'
@@ -83,6 +84,7 @@ export default async function handler(
     return  
   }
 
+  // FIX: Ensure unhandled HTTP methods return a 405 status code
   res.status(405).json({ message: 'Method not allowed' })
   return
 }

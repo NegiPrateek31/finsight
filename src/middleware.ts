@@ -1,9 +1,10 @@
-/* eslint-disable no-unused-vars */
+// negiprateek31/finsight/finsight-1382f5b01244365c9a92f06365cf1e52dc019117/src/middleware.ts
+
 import { NextRequest, NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
 import { getToken } from 'next-auth/jwt'
 
-// Protected paths configuration
+// Protected paths configuration (no longer used in middleware, but kept for reference)
 const PROTECTED_PATHS = {
   api: [
     '/api/posts',
@@ -27,29 +28,15 @@ const middlewareHandler = async (req: NextRequest) => {
     console.log('[middleware] cookie header:', req.headers.get('cookie'));
     console.log('[middleware] nextauth token:', (req as any).nextauth?.token);
   }
-  const { pathname } = req.nextUrl;
-  const isAuthPage = pathname.startsWith('/auth');
+  // const { pathname } = req.nextUrl; // Original code path is removed
+  // const isAuthPage = pathname.startsWith('/auth'); // Original code path is removed
 
-  // Only redirect to home if already authenticated and on auth page
-  if (isAuthPage) {
-    return null;
-  }
-
-  // Require auth for landing page
-  // withAuth will handle redirect if not authenticated
-
-  // Check if the path needs authentication
-  // withAuth will handle protected routes
-
-  // Handle admin routes
-  // If you need role-based access, check session in API route, not here
-
-  // Handle moderator routes
-  // If you need role-based access, check session in API route, not here
-
-  // Handle API routes
-  // If you need user info, get it from session in API route
-
+  // Original check for isAuthPage is redundant if matcher is correct.
+  // if (isAuthPage) {
+  //   return null;
+  // }
+  
+  // withAuth handles the core authentication logic.
   return NextResponse.next();
 }
 
@@ -66,13 +53,16 @@ export default withAuth(middlewareHandler, {
 export const config = {
   matcher: [
     /*
-     * Match all paths except:
-     * 1. /api/auth/* (auth endpoints)
-     * 2. /_next/* (Next.js internals)
-     * 3. /_static (static files)
-     * 4. /_vercel (Vercel internals)
-     * 5. /favicon.ico, /sitemap.xml (static files)
+     * FIX: The previous matcher was including /auth/signin.
+     * We need to explicitly exclude /auth/ and related files.
+     * The regex below matches everything EXCEPT paths that begin with:
+     * 1. /api/auth (NextAuth API routes)
+     * 2. /auth (Sign in/Sign up pages) <-- ADDED EXCLUSION
+     * 3. /_next/* (Next.js internals)
+     * 4. /_static (static files)
+     * 5. /_vercel (Vercel internals)
+     * 6. /favicon.ico, /sitemap.xml (static files)
      */
-    '/((?!api/auth|_next|_static|_vercel|favicon.ico|sitemap.xml).*)',
+    '/((?!api/auth|auth|_next|_static|_vercel|favicon.ico|sitemap.xml).*)',
   ],
 }
