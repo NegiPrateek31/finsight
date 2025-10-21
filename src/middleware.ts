@@ -50,7 +50,6 @@ const middlewareHandler = async (req: NextRequest) => {
   // Handle API routes
   // If you need user info, get it from session in API route
 
-  return NextResponse.next()
   return NextResponse.next();
 }
 
